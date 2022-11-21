@@ -5,8 +5,12 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const bowling = Bowlings.list();
-  res.send(bowling);
+  let score= 0;
+  // for(let i=0; i < bowling.length;i++){
+
+  // }
+
+  res.render('bowling',Bowlings.list());
 });
 
 module.exports = router;
