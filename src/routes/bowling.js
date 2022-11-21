@@ -1,11 +1,12 @@
 const express = require("express");
-// const Inventions = require("../models/Invention");
+ const Bowlings = require("../models/Bowling");
 // const keyToUpperCase = require("../services/keyToUpperCase");
 // const sortPerCreationDate = require("../services/sortPerCreationDate");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.send("Welcome to the bowling !");
+  const bowling = Bowlings.list();
+  res.send(bowling);
 });
 
 module.exports = router;
