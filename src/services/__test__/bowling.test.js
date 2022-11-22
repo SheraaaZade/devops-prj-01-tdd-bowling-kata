@@ -16,6 +16,16 @@ describe('Score bowling', () => {
     thenResultIs(0);
   });
 
+  // eslint-disable-next-line no-undef
+  it('undefined scores', () => {
+    // eslint-disable-next-line no-use-before-define
+    givenScores();
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(undefined);
+  });
+
   function givenScores(customScores) {
     scores = customScores;
   }

@@ -1,6 +1,7 @@
 module.exports = function calculScore(rolls) {
   let score = 0;
   let positionIndex = 0;
+  if (rolls === undefined) return undefined;
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < 10; i++) {
     const rollOne = rolls[positionIndex];
