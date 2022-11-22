@@ -5,7 +5,7 @@ let result;
 let scores;
 
 // eslint-disable-next-line no-undef
-describe('Score bowling', () => {
+describe('should return 0', () => {
   // eslint-disable-next-line no-undef
   it('balls -> 0', () => {
     // eslint-disable-next-line no-use-before-define
@@ -17,9 +17,19 @@ describe('Score bowling', () => {
   });
 
   // eslint-disable-next-line no-undef
-  it('undefined scores', () => {
+  it('should failed as scores is not provided', () => {
     // eslint-disable-next-line no-use-before-define
     givenScores();
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(undefined);
+  });
+
+  // eslint-disable-next-line no-undef
+  it('should failed as negative values in scores', () => {
+    // eslint-disable-next-line no-use-before-define
+    givenScores([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0]);
     // eslint-disable-next-line no-use-before-define
     whenBowling(scores);
     // eslint-disable-next-line no-use-before-define
