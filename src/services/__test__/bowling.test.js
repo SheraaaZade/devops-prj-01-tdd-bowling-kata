@@ -36,6 +36,15 @@ describe('should return 0', () => {
     thenResultIs(undefined);
   });
 
+  // eslint-disable-next-line no-undef
+  it('should return 20 for game of all ones', () => {
+    givenScores(Array(20).fill(1));
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(20);
+  });
+
   function givenScores(customScores) {
     scores = customScores;
   }
@@ -46,6 +55,6 @@ describe('should return 0', () => {
 
   function thenResultIs(expectedResult) {
     // eslint-disable-next-line no-undef
-    expect(result).toEqual(expectedResult);
+    expect(expectedResult).toEqual(result);
   }
 });
