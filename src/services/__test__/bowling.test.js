@@ -63,7 +63,14 @@ describe('should return 0', () => {
       thenResultIs(26);
     });
 
-    
+     // eslint-disable-next-line no-undef
+     it('all strikes, scores = 300', () => {
+      givenScores(Array(12).fill(10));
+      // eslint-disable-next-line no-use-before-define
+      whenBowling(scores);
+      // eslint-disable-next-line no-use-before-define
+      thenResultIs(300);
+    });
 
 
   function givenScores(customScores) {
