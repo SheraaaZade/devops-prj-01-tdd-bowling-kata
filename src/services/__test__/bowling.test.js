@@ -45,6 +45,17 @@ describe('should return 0', () => {
     thenResultIs(20);
   });
 
+    // eslint-disable-next-line no-undef
+    it('handles a spare with correct bonus', () => {
+      givenScores([5, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+      // eslint-disable-next-line no-use-before-define
+      whenBowling(scores);
+      // eslint-disable-next-line no-use-before-define
+      thenResultIs(16);
+    });
+
+
+
   function givenScores(customScores) {
     scores = customScores;
   }
@@ -55,6 +66,6 @@ describe('should return 0', () => {
 
   function thenResultIs(expectedResult) {
     // eslint-disable-next-line no-undef
-    expect(expectedResult).toEqual(result);
+    expect(result).toEqual(expectedResult);
   }
 });
