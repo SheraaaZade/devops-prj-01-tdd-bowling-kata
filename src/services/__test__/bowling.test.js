@@ -7,7 +7,7 @@ let scores;
 // eslint-disable-next-line no-undef
 describe('should return 0', () => {
   // eslint-disable-next-line no-undef
-  it('balls -> 0', () => {
+  it('should fail if the result is not 0 since all of the values equal 0', () => {
     // eslint-disable-next-line no-use-before-define
     givenScores([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     // eslint-disable-next-line no-use-before-define
@@ -17,7 +17,7 @@ describe('should return 0', () => {
   });
 
   // eslint-disable-next-line no-undef
-  it('should failed as scores is not provided', () => {
+  it('should fail as the scores have not been provided', () => {
     // eslint-disable-next-line no-use-before-define
     givenScores();
     // eslint-disable-next-line no-use-before-define
@@ -27,7 +27,7 @@ describe('should return 0', () => {
   });
 
   // eslint-disable-next-line no-undef
-  it('should failed as negative values in scores', () => {
+  it('should fail as there are negative values in the scores', () => {
     // eslint-disable-next-line no-use-before-define
     givenScores([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0]);
     // eslint-disable-next-line no-use-before-define
@@ -37,7 +37,7 @@ describe('should return 0', () => {
   });
 
   // eslint-disable-next-line no-undef
-  it('should return 20 for game of all ones', () => {
+  it('should return 20 as each value is equal to one', () => {
     givenScores(Array(20).fill(1));
     // eslint-disable-next-line no-use-before-define
     whenBowling(scores);
@@ -46,7 +46,7 @@ describe('should return 0', () => {
   });
 
     // eslint-disable-next-line no-undef
-    it('handles a spare with correct bonus', () => {
+    it('handles a spare with the appropriate bonus', () => {
       givenScores([5, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
       // eslint-disable-next-line no-use-before-define
       whenBowling(scores);
@@ -55,7 +55,7 @@ describe('should return 0', () => {
     });
 
     // eslint-disable-next-line no-undef
-    it('handles a strike with correct bonus', () => {
+    it('handles a strike with the appropriate bonus', () => {
       givenScores([0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
       // eslint-disable-next-line no-use-before-define
       whenBowling(scores);
@@ -64,7 +64,7 @@ describe('should return 0', () => {
     });
 
      // eslint-disable-next-line no-undef
-     it('all strikes, scores = 300', () => {
+     it('result should be 300 as there are only strikes', () => {
       givenScores(Array(12).fill(10));
       // eslint-disable-next-line no-use-before-define
       whenBowling(scores);
