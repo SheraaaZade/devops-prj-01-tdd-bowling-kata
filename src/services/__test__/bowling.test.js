@@ -54,6 +54,16 @@ describe('should return 0', () => {
       thenResultIs(16);
     });
 
+    // eslint-disable-next-line no-undef
+    it('handles a strike with correct bonus', () => {
+      givenScores([0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+      // eslint-disable-next-line no-use-before-define
+      whenBowling(scores);
+      // eslint-disable-next-line no-use-before-define
+      thenResultIs(26);
+    });
+
+    
 
 
   function givenScores(customScores) {
