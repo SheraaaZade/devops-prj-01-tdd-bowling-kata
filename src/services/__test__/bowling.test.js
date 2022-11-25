@@ -89,7 +89,16 @@ describe('should return 0', () => {
         // eslint-disable-next-line no-use-before-define
         thenResultIs(10);
       });
-  
+
+       
+         // eslint-disable-next-line no-undef
+          it('plus de 10 revoie un fall', () => {
+            givenScores([0, 15, 0, 11, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            // eslint-disable-next-line no-use-before-define
+            whenBowling(scores);
+            // eslint-disable-next-line no-use-before-define
+            thenResultIs(34);
+          });
 
 
   function givenScores(customScores) {
