@@ -1,9 +1,10 @@
 module.exports = function calculScore(rolls) {
   let score = 0;
   let positionIndex = 0;
+  
   if (rolls === undefined) return undefined;
 
-  isEmpty(rolls);
+  allValuesPositive(rolls);
 
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < 10; i++) {
@@ -26,7 +27,7 @@ module.exports = function calculScore(rolls) {
 };
 
 
-function isEmpty(rolls){
+function allValuesPositive(rolls){
   for (let i = 0; i < rolls.length; i++) {
     if (rolls[i] < 0) return undefined;
   }
