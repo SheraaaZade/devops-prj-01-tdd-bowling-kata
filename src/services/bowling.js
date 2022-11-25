@@ -26,3 +26,11 @@ module.exports = function calculScore(rolls) {
   }
   return score;
 };
+
+
+function isEmpty(rolls){
+  for (let i = 0; i < rolls.length; i++) {
+    if (rolls[i] < 0) return undefined;
+  }
+}
+
