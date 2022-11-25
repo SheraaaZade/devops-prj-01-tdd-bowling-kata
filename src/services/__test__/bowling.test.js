@@ -72,6 +72,18 @@ describe('should return 0', () => {
       thenResultIs(300);
     });
 
+     // eslint-disable-next-line no-undef
+     it('result of strik in last round', () => {
+      givenScores([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0]);
+      // eslint-disable-next-line no-use-before-define
+      whenBowling(scores);
+      // eslint-disable-next-line no-use-before-define
+      thenResultIs(10);
+    });
+
+     
+  
+
 
   function givenScores(customScores) {
     scores = customScores;
