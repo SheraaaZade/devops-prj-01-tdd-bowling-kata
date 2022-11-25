@@ -81,7 +81,14 @@ describe('should return 0', () => {
       thenResultIs(10);
     });
 
-     
+      // eslint-disable-next-line no-undef
+      it('result of spare in last round', () => {
+        givenScores([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]);
+        // eslint-disable-next-line no-use-before-define
+        whenBowling(scores);
+        // eslint-disable-next-line no-use-before-define
+        thenResultIs(10);
+      });
   
 
 
