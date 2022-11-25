@@ -3,10 +3,8 @@ module.exports = function calculScore(rolls) {
   let positionIndex = 0;
   if (rolls === undefined) return undefined;
 
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < rolls.length; i++) {
-    if (rolls[i] < 0) return undefined;
-  }
+  isEmpty(rolls);
+
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < 10; i++) {
     const rollOne = rolls[positionIndex];
