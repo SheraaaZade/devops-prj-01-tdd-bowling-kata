@@ -93,4 +93,11 @@ describe('Bowling test', () => {
     whenBowling(scores);
     thenResultIs(undefined);
   });
+
+  // eslint-disable-next-line no-undef
+  it('result should be 150 as there are only spares', () => {
+    givenScores(Array(21).fill(5));
+    whenBowling(scores);
+    thenResultIs(150);
+  });
 });
