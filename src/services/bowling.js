@@ -5,7 +5,7 @@ module.exports = function calculScore(rolls) {
   if (rolls === undefined) return undefined;
 
   for (let i = 0; i < rolls.length; i++) {
-    if (rolls[i] < 0 || rolls[i] === undefined) return undefined;
+    if (rolls[i] < 0 || rolls[i] > 10 || rolls[i] === undefined) return undefined;
   }
 
   for (let i = 0; i < 10; i++) {
