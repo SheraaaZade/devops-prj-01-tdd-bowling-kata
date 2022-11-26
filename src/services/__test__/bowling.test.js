@@ -45,33 +45,60 @@ describe('should return 0', () => {
     thenResultIs(20);
   });
 
-    // eslint-disable-next-line no-undef
-    it('handles a spare with the appropriate bonus', () => {
-      givenScores([5, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-      // eslint-disable-next-line no-use-before-define
-      whenBowling(scores);
-      // eslint-disable-next-line no-use-before-define
-      thenResultIs(16);
-    });
+  // eslint-disable-next-line no-undef
+  it('handles a spare with the appropriate bonus', () => {
+    givenScores([5, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(16);
+  });
 
-    // eslint-disable-next-line no-undef
-    it('handles a strike with the appropriate bonus', () => {
-      givenScores([0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-      // eslint-disable-next-line no-use-before-define
-      whenBowling(scores);
-      // eslint-disable-next-line no-use-before-define
-      thenResultIs(26);
-    });
+  // eslint-disable-next-line no-undef
+  it('handles a strike with the appropriate bonus', () => {
+    givenScores([0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(26);
+  });
 
-     // eslint-disable-next-line no-undef
-     it('result should be 300 as there are only strikes', () => {
-      givenScores(Array(12).fill(10));
-      // eslint-disable-next-line no-use-before-define
-      whenBowling(scores);
-      // eslint-disable-next-line no-use-before-define
-      thenResultIs(300);
-    });
+  // eslint-disable-next-line no-undef
+  it('result should be 300 as there are only strikes', () => {
+    givenScores(Array(12).fill(10));
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(300);
+  });
 
+  // eslint-disable-next-line no-undef
+  it('should make a functional strike in the last round', () => {
+    givenScores([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 4, 7]);
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(21);
+  });
+
+  // eslint-disable-next-line no-undef
+  it('should have a functional spare in the last round', () => {
+    givenScores([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 8]);
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(18);
+  });
+
+
+  // eslint-disable-next-line no-undef
+  it('should fail as incorrect values have been entered', () => {
+    givenScores([0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    // eslint-disable-next-line no-use-before-define
+    whenBowling(scores);
+    // eslint-disable-next-line no-use-before-define
+    thenResultIs(undefined);
+  });
 
   function givenScores(customScores) {
     scores = customScores;
