@@ -1,35 +1,52 @@
 module.exports = function calculScore(rolls) {
   let score = 0;
   let positionIndex = 0;
-  
+
   if (rolls === undefined) return undefined;
 
-  allValuesPositive(rolls);
+  for (let i = 0; i < rolls.length; i++) {
+    if (rolls[i] < 0 || rolls[i] === undefined) return undefined;
+  }
 
-  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < 10; i++) {
-    const rollOne = rolls[positionIndex];
-    if (rollOne === 10) {
-      score += 10 + rolls[positionIndex + 1] + rolls[positionIndex + 2];
-      // eslint-disable-next-line no-plusplus
+
+    if(isStrike(rolls, positionIndex)) { //stike
+      score += markStrike(rolls, positionIndex);
       positionIndex++;
-    } else {
-      // spare
-      const secondRoll = rolls[positionIndex + 1];
-      score += rollOne + secondRoll;
-      if (rollOne + secondRoll === 10) {
-        score += rolls[positionIndex + 2];
-      }
-      positionIndex += 2;
+      continue;
     }
+    
+    let rollScore = sum(rolls, positionIndex);
+
+    if(isSpare(rolls, positionIndex)){ //spare
+      score +=markSpare(rolls, positionIndex);    
+    }else{ //not spare, not strike
+      score += rollScore;
+    }
+
+    positionIndex += 2;
   }
   return score;
 };
 
 
-function allValuesPositive(rolls){
-  for (let i = 0; i < rolls.length; i++) {
-    if (rolls[i] < 0) return undefined;
-  }
+
+function sum(rolls, positionIndex){
+  return rolls[positionIndex] + rolls[positionIndex+1];
 }
 
+ function markStrike(rolls, positionIndex){
+  return 10+rolls[positionIndex+1]+rolls[positionIndex+2];
+}
+
+function markSpare(rolls, positionIndex){
+  return 10 + rolls[positionIndex+2];
+}
+
+function isStrike(rolls, positionIndex) {
+  return rolls[positionIndex]===10;
+};
+
+function isSpare(rolls, positionIndex){
+  return rolls[positionIndex]+rolls[positionIndex+1]===10;
+}
