@@ -86,4 +86,11 @@ describe('Bowling test', () => {
     whenBowling(scores);
     thenResultIs(undefined);
   });
+
+  // eslint-disable-next-line no-undef
+  it('should fail as positionIndex is out of bound', () => {
+    givenScores(Array(12).fill(5));
+    whenBowling(scores);
+    thenResultIs(undefined);
+  });
 });

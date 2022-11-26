@@ -10,22 +10,22 @@ module.exports = function calculScore(rolls) {
   function sum(rolls, positionIndex) {
     return rolls[positionIndex] + rolls[positionIndex + 1];
   }
-  
+
   // eslint-disable-next-line no-shadow
   function markStrike(rolls, positionIndex) {
     return 10 + rolls[positionIndex + 1] + rolls[positionIndex + 2];
   }
-  
+
   // eslint-disable-next-line no-shadow
   function markSpare(rolls, positionIndex) {
     return 10 + rolls[positionIndex + 2];
   }
-  
+
   // eslint-disable-next-line no-shadow
   function isStrike(rolls, positionIndex) {
     return rolls[positionIndex] === 10;
   }
-  
+
   function isSpare(rolls, positionIndex) {
     return rolls[positionIndex] + rolls[positionIndex + 1] === 10;
   }
@@ -35,7 +35,7 @@ module.exports = function calculScore(rolls) {
   }
 
   // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 10 && positionIndex < rolls.length; i++) {
     if (isStrike(rolls, positionIndex)) {
       // stike
       score += markStrike(rolls, positionIndex);
@@ -49,6 +49,7 @@ module.exports = function calculScore(rolls) {
     const rollScore = sum(rolls, positionIndex);
 
     if (isSpare(rolls, positionIndex)) {
+      if (rolls[positionIndex + 2] === undefined) return undefined;
       // eslint-disable-next-line no-use-before-define
       score += markSpare(rolls, positionIndex);
     } else {
